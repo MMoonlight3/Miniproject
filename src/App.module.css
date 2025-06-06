@@ -1,0 +1,66 @@
+.App{
+    padding: 30px;
+    display: flex;
+    flex-direction: row;    
+    gap: 120px;
+}
+
+.chartContainer {
+    
+}
+
+
+
+.interfaceContainer{
+    position: relative; 
+    top: 20px;
+    /* background-color: black; */
+    width: 500px;
+}
+
+.functionContainer{
+    display: flex;
+    gap: 25px;
+}
+
+.counterContainer {
+  display: inline-flex;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  overflow: hidden;
+ 
+}
+
+#counterButton {
+  width: 25px;
+  height: 30px;
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+}
+
+#counterButton:hover {
+  background-color: #f0f0f0;
+}
+
+#counterValue {
+  width: 35px;
+  line-height: 30px;
+  font-weight: bold;
+  text-align: center;
+  /* border: 0px; */
+  border: none;
+}
+
+#buy{
+    width: 55px;
+    background-color: red;
+    border-radius: 5px;
+}
+
+#sell{
+    width: 55px;
+    background-color: blue;
+    border-radius: 5px;
+}

@@ -20,7 +20,7 @@ const MiniChartWidget = ({ symbol, width = 500, height = 300 }) => {
       width: width,            // 차트 가로 크기 (기본 500)
       height: height,          // 차트 세로 크기 (기본 300)
       locale: "kr",            // 한국어 설정
-      dateRange: "12M",        // 12개월 데이터 표시
+      dateRange: "1D",         // 12개월 데이터 표시
       colorTheme: "light",     // 밝은 테마 사용
       trendLineColor: "#2196F3", // 선 색상 
       underLineColor: "rgba(33, 150, 243, 0.15)", // 차트 아래 색상
