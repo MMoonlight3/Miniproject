@@ -3,7 +3,7 @@ import MiniChartWidget from "../minichart";
 import styles from "./multiplechart.module.css"
 
 // 보여줄 종목 리스트 (심볼 코드 배열)
-const symbols = ["NASDAQ:TSLA", "NASDAQ:GOOGL","NASDAQ:AAPL","KOSDAQ"];
+const symbols = ["NASDAQ:TSLA", "NASDAQ:GOOGL","NASDAQ:AAPL","KOSDAQ","BTCUSD"];
 
 // 여러 개의 미니 차트를 렌더링하는 컴포넌트
 const Multipulchart = () => {

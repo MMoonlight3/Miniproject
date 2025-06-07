@@ -1,66 +1,84 @@
 .App{
-    padding: 30px;
-    display: flex;
-    flex-direction: row;    
-    gap: 120px;
+  padding: 30px;
+  display: flex;
+  flex-direction: row;    
+  gap: 120px;
 }
 
 .chartContainer {
-    
+  
 }
 
 
 
 .interfaceContainer{
-    position: relative; 
-    top: 20px;
-    /* background-color: black; */
-    width: 500px;
+  /* position: relative;  */
+  top: 45px;
+  left: 550px;
+  /* background-color: black; */
+  width: 500px;
+  position: fixed;
+}
+
+#money{
+  position: relative;
+  left: 220px;
 }
 
 .functionContainer{
-    display: flex;
-    gap: 25px;
+  display: flex;
+  gap: 25px;
 }
 
 .counterContainer {
-  display: inline-flex;
-  border: 1px solid #000000;
-  border-radius: 6px;
-  overflow: hidden;
- 
+display: inline-flex;
+border: 1px solid #000000;
+border-radius: 6px;
+overflow: hidden;
+
 }
 
 #counterButton {
-  width: 25px;
-  height: 30px;
-  font-size: 20px;
-  border: none;
-  background-color: white;
-  cursor: pointer;
+width: 20px;
+height: 30px;
+font-size: 20px;
+border: none;
+background-color: white;
+cursor: pointer;
 }
 
 #counterButton:hover {
-  background-color: #f0f0f0;
+background-color: #f0f0f0;
 }
 
 #counterValue {
-  width: 35px;
-  line-height: 30px;
-  font-weight: bold;
-  text-align: center;
-  /* border: 0px; */
-  border: none;
+width: 35px;
+line-height: 30px;
+font-weight: bold;
+text-align: center;
+border: none;
 }
 
+
 #buy{
-    width: 55px;
-    background-color: red;
-    border-radius: 5px;
+width: 55px;
+background-color: red;
+  border-radius: 5px;
+  color: #fff;
+  /* border: 0px solid; */
+}
+
+#buy:active{
+  background-color: #810000;
 }
 
 #sell{
-    width: 55px;
-    background-color: blue;
-    border-radius: 5px;
+  width: 55px;
+  background-color: blue;
+  border-radius: 5px;
+  color: #fff;
+  /* border: 0px solid; */
+}
+#sell:active{
+  background-color: #00007b;
 }

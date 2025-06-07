@@ -15,12 +15,12 @@ import { useState } from "react";
 function App() {
  const [count, setCount] = useState(0);
 
-const increment = () => setCount(count + 1);
-const decrement = () => setCount(count > 0 ? count - 1 : 0);
-const handleChange = (e) => {
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count > 0 ? count - 1 : 0);
+  const handleChange = (e) => { {/* input이 바뀔 때 실행됨됨 */}
     const value = e.target.value;
-    if (/^\d*$/.test(value)) {
-      setCount(value === "" ? "" : value);
+    if (/^\d*$/.test(value)) { {/* 숫자만 있는 문자인지 확인 */}
+      setCount(value === "" ? "" : parseInt(value));
     }
   };
 
@@ -31,12 +31,13 @@ const handleChange = (e) => {
   return (
     // 화면 전체를 감싸는 div
     <div className={styles.App}>
-      {/* <MiniChart />  */} {/* 이거 대체 정체가 뭐임?? */}
       <div className={styles.chartContainer}>
         <Multiplechart />
       </div>
       <div className= {styles.interfaceContainer}>
-        <h2 id={styles.money}>총 자산: 100000000000</h2>
+        <h2 id={styles.money}>총 자산 : 100000000000</h2>
+        <h3>필요 자산 : 뭐시기</h3>
+        <h3>이익 : 뭐시기</h3>
         <div className={styles.functionContainer}>
           <div className={styles.counterContainer}>
             <button id={styles.counterButton} onClick={decrement}>-</button>
