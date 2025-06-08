@@ -9,7 +9,7 @@ const MiniChartWidget = ({ symbol, width = 500, height = 300 }) => {
     // 이미 위젯 스크립트가 있으면 다시 불러오지 않음
     if (containerRef.current && containerRef.current.querySelector("script")) return;
 
-    const script = document.createElement("script");
+    const script = document.createElement("script"); // 동적로딩용
     script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
     script.type = "text/javascript";
     script.async = true;
