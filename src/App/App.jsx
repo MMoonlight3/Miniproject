@@ -1,5 +1,5 @@
-import MiniChart from "./minichart"; // 미니 차트 위젯 컴포넌트 가지고오는거
-import Multiplechart from "./multiplechart/multiplechart";
+import MiniChart from "../multiplechart/minichart"; // 미니 차트 위젯 컴포넌트 가지고오는거
+import Multiplechart from "../multiplechart/multiplechart";
 import styles from "./App.module.css";
 import { useState } from "react";
 
@@ -13,7 +13,7 @@ import { useState } from "react";
 */
 
 function App() {
- const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count > 0 ? count - 1 : 0);

@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 const MiniChartWidget = ({ symbol, width = 500, height = 300 }) => {
   const containerRef = useRef(null);
 
-  useEffect(() => {
+  useEffect(() => { // symbol, width, height 변경 시 다시 실행
     if (!symbol) return; // symbol 없으면 차트 생성 안 함
 
     // 이미 위젯 스크립트가 있으면 다시 불러오지 않음
@@ -40,7 +40,8 @@ const MiniChartWidget = ({ symbol, width = 500, height = 300 }) => {
         }
       }
     };
-  }, [symbol, width, height]); // symbol, width, height 변경 시 다시 실행
+    }, [symbol, width, height]
+  );
 
   return (
     <div
