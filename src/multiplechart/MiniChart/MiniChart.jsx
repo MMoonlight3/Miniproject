@@ -1,57 +1,48 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createChart, LineSeries } from "lightweight-charts";
+import axios from "axios";
 
-const MiniChartWidget = ({ symbol, width = 500, height = 300 }) => {
-  const containerRef = useRef(null);
+// const symbols = "AAPL"
 
-  useEffect(() => { // symbol, width, height 변경 시 다시 실행
-    if (!symbol) return; // symbol 없으면 차트 생성 안 함
+export const getData = async(symbol) => {
+  try {
+    const stockData = await axios.get(`https://api.twelvedata.com/time_series?symbol=${symbol},USD/KRW&interval=1min&apikey=0c0678b9920e4a64809872434b5973c5`)
+    console.log(stockData)
+    const values = stockData.data[symbol].values.reverse().map((item) => ({
+      time: Math.floor(new Date(item.datetime).getTime() / 1000),
+      value: parseFloat(item.close),
+    }))
+    return values;
+  } catch (error) {
+    console.log('주식 정보 불러오지 못 함',error)
+  }
 
-    // 이미 위젯 스크립트가 있으면 다시 불러오지 않음
-    if (containerRef.current && containerRef.current.querySelector("script")) return;
-
-    const script = document.createElement("script"); // 동적로딩용
-    script.src = "https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js";
-    script.type = "text/javascript";
-    script.async = true;
-
-    // 위젯 설정 JSON 문자열로 변환해서 스크립트에 넣음
-    script.innerHTML = JSON.stringify({
-      symbol: symbol,          // 표시할 주식 심볼 (필수)
-      width: width,            // 차트 가로 크기 (기본 500)
-      height: height,          // 차트 세로 크기 (기본 300)
-      locale: "kr",            // 한국어 설정
-      dateRange: "1D",         // 12개월 데이터 표시
-      colorTheme: "light",     // 밝은 테마 사용
-      trendLineColor: "#2196F3", // 선 색상 
-      underLineColor: "rgba(33, 150, 243, 0.15)", // 차트 아래 색상
-      isTransparent: false,    // 배경 투명 여부
-      autosize: false,         // 컨테이너에 맞춰 크기 자동 조절 여부
-      largeChartUrl: ""        // 위젯 클릭 시 이동할 링크 (설정 안함)
-    });
-
-    // 위젯을 담을 div에 스크립트 추가
-    containerRef.current.appendChild(script);
-
-    // 컴포넌트 언마운트 시 스크립트 제거해서 정리
-    return () => {
-      if (containerRef.current) {
-        while (containerRef.current.firstChild) {
-          containerRef.current.removeChild(containerRef.current.firstChild);
-        }
+}
+  const Drawcharts = ({symbol}) => {
+    const containerRef = useRef()
+    useEffect(() => {
+      const setChart = async() => {
+        const data = await getData(symbol)
+        const chart = createChart(containerRef.current,{
+          width: 500,
+          height: 400,
+        })
+        
+        const lineSeries = chart.addSeries(LineSeries, { color: '#2962FF' })
+        lineSeries.setData(data)
+        chart.timeScale().fitContent()
       }
-    };
-    }, [symbol, width, height]
-  );
+      setChart()
+    },[symbol])
+    return (
+      <div>
+        <h2>{symbol}</h2>
+        <div ref={containerRef}></div>
+      </div>
+  )
+  }
+  
+  export default Drawcharts
 
-  return (
-    <div
-      className="tradingview-widget-container"
-      ref={containerRef}
-      style={{ marginBottom: 20 }} // 차트 아래 여백 추가
-    >
-      <div className="tradingview-widget-container__widget"></div>
-    </div>
-  );
-};
-
-export default MiniChartWidget;
+  
+  

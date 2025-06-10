@@ -1,9 +1,12 @@
-import MiniChartWidget from "../multipleChart/MiniChart/MiniChart.jsx"; // 미니 차트 위젯 컴포넌트 가지고오는거
+import axios from "axios";
+// import MiniChartWidget from "../multipleChart/MiniChart/MiniChart.jsx"; // 미니 차트 위젯 컴포넌트 가지고오는거
 import Multiplechart from "../multiplechart/multiplechart";
 import styles from "./App.module.css";
 import { useState } from "react";
-
+// import axios from "axios";
+// import Chart from "../multipleChart/MiniChart/MiniChart.jsx";
 /*
+
 변수명 작명법
 예시: testContainer
 1. test_container // 풀네임으로 쓰기
@@ -11,10 +14,12 @@ import { useState } from "react";
 3. tstContainer // 줄여서 쓰기
 
 */
+import Drawcharts from "../multiplechart/MiniChart/MiniChart";
+import { getData } from "../multiplechart/MiniChart/MiniChart";
 
 function App() {
   const [count, setCount] = useState(0);
-
+  // Chart()
   const increment = () => setCount(count + 1);
   const decrement = () => setCount(count > 0 ? count - 1 : 0);
   const handleChange = (e) => { {/* input이 바뀔 때 실행됨됨 */}
@@ -32,7 +37,8 @@ function App() {
     // 화면 전체를 감싸는 div
     <div className={styles.App}>
       <div className={styles.chartContainer}>
-        <Multiplechart />
+        <Multiplechart/>
+        
       </div>
       <div className= {styles.interfaceContainer}>
         <h2 id={styles.money}>총 자산 : 100000000000</h2>
@@ -47,9 +53,7 @@ function App() {
           <button id = {styles.buy}>매수</button>
           <button id = {styles.sell}>매도</button>
         </div>
-        <table>
-          
-        </table>
+        
       </div>
     </div>
   );
