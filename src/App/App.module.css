@@ -16,6 +16,8 @@
   left: 600px;
   width: 500px;
   position: fixed;
+  /* display: f; */
+  /* gap: 20px;/ */
 }
 
 #money{
@@ -29,7 +31,7 @@
 }
 
 .counterContainer {
-display: inline-flex;
+display: flex;
 border: 1px solid #000000;
 border-radius: 6px;
 overflow: hidden;
@@ -77,4 +79,20 @@ background-color: red;
 }
 #sell:active{
   background-color: #00007b;
+}
+
+.searchContainer{
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+}
+
+#searchInput{
+  height: 25px;
+  
+}
+
+#searchButton{
+  height: 32px;
+
 }
