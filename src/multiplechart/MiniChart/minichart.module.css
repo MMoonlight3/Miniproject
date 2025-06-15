@@ -1,0 +1,14 @@
+.item {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid gray;
+}
+
+.selected {
+  border-color: #339af0;
+}
+
+.buttons{
+    display: flex;
+    gap: 15px;
+}

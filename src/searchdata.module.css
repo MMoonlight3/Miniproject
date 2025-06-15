@@ -1,0 +1,14 @@
+#searched{
+    display: inline;
+    flex-wrap: nowrap;
+    border: solid black 2px;
+    padding: 2px 5px;
+    margin-right: 5px;
+    
+}
+
+#container{
+    display: flex;
+    gap: 20px;
+    
+}
