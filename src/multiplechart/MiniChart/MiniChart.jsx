@@ -46,7 +46,6 @@ export const getData = async(symbol) => {
       <h2>{symbol}</h2>
       <div ref={containerRef}></div>
       <div className={styles.buttons}>
-      <button>매수</button>
       <button onClick={remove}>제거</button>
       </div>
     </div>
