@@ -11,6 +11,7 @@ import { useState,useEffect } from "react";
 
 // 여러 개의 미니 차트를 렌더링하는 컴포넌트
 const Multipulchart = ({symbols,setSymbols}) => {
+<<<<<<< HEAD
     // const [time,settime] = useState(0)
 
   const [time, settime] = useState(0);
@@ -20,6 +21,11 @@ const Multipulchart = ({symbols,setSymbols}) => {
     }, 60000);
     return clearInterval(timer)
   },[])
+=======
+
+  // const [selectedSymbol, setSelectedSymbol] = useState(null);
+  
+>>>>>>> 0e35b40f822ecc79dcc71ebd069c7043ebd1fb8e
   
   if (!symbols) return
   return (
@@ -30,6 +36,10 @@ const Multipulchart = ({symbols,setSymbols}) => {
       {symbols.map((symbol) => (
         <Drawcharts key={symbol} symbols = {symbols} symbol={symbol} setSymbols={setSymbols}/>
       ))}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0e35b40f822ecc79dcc71ebd069c7043ebd1fb8e
       
     </div>
     
