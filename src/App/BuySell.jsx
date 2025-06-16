@@ -1,5 +1,7 @@
-function BuySell() {
+export function buy() {
 
 }
 
-export default BuySell;
+export function sell() {
+
+}
