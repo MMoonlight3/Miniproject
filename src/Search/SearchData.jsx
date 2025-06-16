@@ -9,6 +9,7 @@ import { useState } from "react";
 // 내 피그마는 멈췃는데
 // 안 됨?
 function SearchData({data,symbols,addSymbols}){
+    console.log(data)
     const add = () => {
         if (symbols.length < 3){
             if (!symbols.includes(data.symbol))

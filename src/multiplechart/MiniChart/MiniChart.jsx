@@ -31,7 +31,7 @@ export const getData = async(symbol) => {
     const setChart = async() => {
       const data = await getData(symbol)
       const chart = createChart(containerRef.current,{
-        width: 500,
+        width: 400,
         height: 400,
       })
       const lineSeries = chart.addSeries(LineSeries, { color: '#2962FF' })

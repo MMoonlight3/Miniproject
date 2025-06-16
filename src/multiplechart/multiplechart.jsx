@@ -3,7 +3,7 @@
 import styles from "./multiplechart.module.css"
 import Drawcharts from "./MiniChart/MiniChart.jsx";
 import axios from "axios";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 // import { getData } from "./MiniChart/MiniChart.jsx";
 // import { symbols } from "../SearchData.jsx";
 // 보여줄 종목 리스트 (심볼 코드 배열)
@@ -11,8 +11,15 @@ import { useState } from "react";
 
 // 여러 개의 미니 차트를 렌더링하는 컴포넌트
 const Multipulchart = ({symbols,setSymbols}) => {
-  // const [selectedSymbol, setSelectedSymbol] = useState(null);
-  
+    // const [time,settime] = useState(0)
+
+  const [time, settime] = useState(0);
+  useEffect(()=>{
+    const timer = setInterval(() => {
+      settime(time+1)
+    }, 60000);
+    return clearInterval(timer)
+  },[])
   
   if (!symbols) return
   return (
@@ -23,7 +30,6 @@ const Multipulchart = ({symbols,setSymbols}) => {
       {symbols.map((symbol) => (
         <Drawcharts key={symbol} symbols = {symbols} symbol={symbol} setSymbols={setSymbols}/>
       ))}
-      {/* <Drawcharts symbols={symbols}/> */}
       
     </div>
     

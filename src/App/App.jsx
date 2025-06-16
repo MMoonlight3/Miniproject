@@ -5,7 +5,7 @@ import Drawcharts from "../multiplechart/MiniChart/MiniChart";
 import { getData } from "../multiplechart/MiniChart/MiniChart";
 import { useState } from "react";
 import SearchData from "../Search/SearchData";
-import BuySell from "./BuySell";
+// import BuySell from "./BuySell";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -63,21 +63,7 @@ function App() {
       </div>
       <div className= {styles.interfaceContainer}>
         <div id={styles.money}>총 자산 : {totalMoney}</div>
-        <div className={styles.searchContainer}>
-          <div>
-            <input id={styles.searchInput} placeholder="주식 검색" onKeyDown={searchKeyDown} onChange={onChange}></input>
-            <button id = {styles.searchButton} onClick={search}>검색</button>
-          </div>
-          <div className={styles.searchResult}>
-            {searchData.map((data,item) => (
-            <SearchData key = {item} data={data} symbols = {symbols} addSymbols={setSymbols}/>
-        ))}
-          </div>
-        </div>
-        
-        {/* <SearchData/> */}
-        <div></div>
-        
+        <div className={styles.tradeContainer}>
         <div className={styles.functionContainer}>
           <div className={styles.counterContainer}>
             <button id={styles.counterButton} onClick={decrease}>-</button>
@@ -88,6 +74,19 @@ function App() {
           <button id = {styles.buy}>매수</button>
           <button id = {styles.sell}>매도</button>
         </div>
+        <div className={styles.searchContainer}>
+          <div>
+            <input id={styles.searchInput} placeholder="주식 검색" onKeyDown={searchKeyDown} onChange={onChange}></input>
+            <button id = {styles.searchButton} onClick={search}>검색</button>
+          </div>
+          <div className={styles.searchResult}>
+            {searchData.map((data,item) => (
+            <SearchData key = {item} data={data} symbols = {symbols} addSymbols={setSymbols}/>
+        ))}
+          </div>
+          </div>
+        </div>
+        
       </div>
     </div>
   );
