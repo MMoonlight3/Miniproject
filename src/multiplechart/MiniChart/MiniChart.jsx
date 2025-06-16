@@ -9,7 +9,7 @@ import styles from "./minichart.module.css"
 
 export const getData = async(symbol) => {
   try {
-    const stockData = await axios.get(`https://api.twelvedata.com/time_series?symbol=${symbol},USD/KRW&interval=1min&apikey=0c0678b9920e4a64809872434b5973c5`)
+    const stockData = await axios.get(`https://api.twelvedata.com/time_series?symbol=${symbol},USD/KRW&interval=1min&apikey=13143e1979c247f795e245449922f36a`)
     console.log(symbol,stockData)
     const values = stockData.data[symbol].values.reverse().map((item) => ({
       time: Math.floor(new Date(item.datetime).getTime() / 1000),
@@ -27,19 +27,36 @@ export const getData = async(symbol) => {
   };
   // const [selectedSymbol, setSelectedSymbol] = useState(null);
   const containerRef = useRef()
+  const chartRef = useRef()
   useEffect(() => {
     const setChart = async() => {
       const data = await getData(symbol)
       const chart = createChart(containerRef.current,{
         width: 400,
         height: 400,
+        handleScroll: { mouseWheel: false, pressedMouseMove: false },
+        handleScale: { axisPressedMouseMove: false, mouseWheel: false, pinch: false }
       })
-      const lineSeries = chart.addSeries(LineSeries, { color: '#2962FF' })
-      lineSeries.setData(data)
+      
+      chartRef.current = chart.addSeries(LineSeries, { color: '#2962FF' })
+      chartRef.current.setData(data)
       chart.timeScale().fitContent()
     }
     setChart()
+    const interval = setInterval(async() => {
+      const latest = await getData(symbol)
+
+      chartRef.current.update(latest.at(-1))
+    },60000)
+
+    return() => {
+      clearInterval(interval)
+      if (chartRef.current) chartRef.current.remove()
+      
+    }
   },[symbol])
+
+
   return (
     <div className={styles.chart}>
     {/* <div>   */}
