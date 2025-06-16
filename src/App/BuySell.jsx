@@ -6,18 +6,35 @@ function getDate() {
     let hours = today.getHours();
     let minutes = today.getMinutes();
     let seconds = today.getSeconds();
+    let milli = today.getMilliseconds();
 
-    let string = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}`
+    let string = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milli}`
     console.log(string)
     return string
 }
 
-/** cost는 원화로 주셔야됩니다. */
-export function buy({cost, count, totalMoney}) {
+function save(head, key, value) {
+    let data = JSON.parse(load(head))
+    data[key]
+}
+
+function saveAs(key, value) {
+    localStorage.setItem(key, value);
+}
+
+function load(key) {
+    return localStorage.getItem(key);
+}
+
+export function buy({cost, count, totalMoney, setTotalMoney}) {
     const date = getDate();
     let totalCost = cost * count;
+    
     if (totalCost > totalMoney) return -1;
-    if ()
+    
+
+    setTotalMoney(totalMoney - totalCost)
+    
 }
 
 export function sell({cost, count, setTotalMoney}) {

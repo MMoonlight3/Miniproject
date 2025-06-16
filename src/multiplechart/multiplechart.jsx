@@ -7,26 +7,10 @@ import { useState,useEffect } from "react";
 // import { getData } from "./MiniChart/MiniChart.jsx";
 // import { symbols } from "../SearchData.jsx";
 // 보여줄 종목 리스트 (심볼 코드 배열)
-// export const symbols = ["NVDL","D","GOOGL"];
+const symbols = ["NASDAQ:TSLA", "NASDAQ:GOOGL","NASDAQ:AAPL","KOSDAQ","BTCUSD","KQ:035720"];
 
 // 여러 개의 미니 차트를 렌더링하는 컴포넌트
 const Multipulchart = ({symbols,setSymbols}) => {
-<<<<<<< HEAD
-    // const [time,settime] = useState(0)
-
-  const [time, settime] = useState(0);
-  useEffect(()=>{
-    const timer = setInterval(() => {
-      settime(time+1)
-    }, 60000);
-    return clearInterval(timer)
-  },[])
-=======
-
-  // const [selectedSymbol, setSelectedSymbol] = useState(null);
-  
->>>>>>> 0e35b40f822ecc79dcc71ebd069c7043ebd1fb8e
-  
   if (!symbols) return
   return (
     // 차트들을 가로로 정렬하고, 줄바꿈 허용 + 간격 20px
@@ -36,11 +20,6 @@ const Multipulchart = ({symbols,setSymbols}) => {
       {symbols.map((symbol) => (
         <Drawcharts key={symbol} symbols = {symbols} symbol={symbol} setSymbols={setSymbols}/>
       ))}
-<<<<<<< HEAD
-=======
-
->>>>>>> 0e35b40f822ecc79dcc71ebd069c7043ebd1fb8e
-      
     </div>
     
   );

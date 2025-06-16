@@ -6,11 +6,7 @@ import { getData } from "../multiplechart/MiniChart/MiniChart";
 import { useState } from "react";
 import SearchData from "../Search/SearchData";
 // import BuySell from "./BuySell";
-<<<<<<< HEAD
-=======
 import {buy} from "./BuySell.jsx";
-// import sell from "./BuySell.jsx"
->>>>>>> 0e35b40f822ecc79dcc71ebd069c7043ebd1fb8e
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,7 +16,6 @@ function App() {
   const [text, setText] = useState('')
   const [totalMoney, setTotalMoney] = useState(1000000);
 
-  buy(123, count);
   const onChange = (e)=>{
       setText(e.target.value)
   }
