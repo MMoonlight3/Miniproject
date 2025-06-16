@@ -5,6 +5,7 @@ import Drawcharts from "../multiplechart/MiniChart/MiniChart";
 import { getData } from "../multiplechart/MiniChart/MiniChart";
 import { useState } from "react";
 import SearchData from "../Search/SearchData";
+import BuySell from "./BuySell";
 
 function App() {
   const [count, setCount] = useState(0);

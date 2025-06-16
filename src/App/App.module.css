@@ -6,7 +6,8 @@
 }
 
 .chartContainer {
-  width: 50%
+  width: fit-content;
+  background-color: #929292;
 }
 
 
