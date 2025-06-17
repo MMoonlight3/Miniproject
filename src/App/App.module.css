@@ -1,4 +1,4 @@
-.App{
+.App {
   padding: 30px;
   display: flex;
   /* align-items: start; */
@@ -7,12 +7,13 @@
 
 .chartContainer {
   width: fit-content;
-  background-color: #929292;
 }
 
+#title {
+  color: black;
+}
 
-
-.interfaceContainer{
+.interfaceContainer {
   /* top: 45px; */
   left: 600px;
   /* width: 50%; */
@@ -24,17 +25,17 @@
   padding: 20px;
 }
 
-#money{
+#money {
   position: relative;
   /* left: 200px; */
 }
 
-.tradeContainer{
+.tradeContainer {
   display: flex;
   gap: 400px;
 }
 
-.functionContainer{
+.functionContainer {
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -52,54 +53,53 @@
 }
 
 #counterButton {
-width: 30%;
-height: 100%;
-font-size: 20px;
-border: none;
-background-color: white;
-cursor: pointer;
+  width: 30%;
+  height: 100%;
+  font-size: 20px;
+  border: none;
+  background-color: white;
+  cursor: pointer;
 }
 
 #counterButton:hover {
-background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 #counterValue {
-width: 40%;
-line-height: 100%;
-font-weight: bold;
-text-align: center;
-border: none;
+  width: 40%;
+  line-height: 100%;
+  font-weight: bold;
+  text-align: center;
+  border: none;
 }
 
 #cost {
-
 }
 
-#buy{
+#buy {
   /* width: 55px; */
   background-color: red;
   border-radius: 5px;
-  color: #fff;  
+  color: #fff;
   /* width: 20%; */
 }
 
-#buy:active{
+#buy:active {
   background-color: #810000;
 }
 
-#sell{
+#sell {
   /* width: 55px; */
   /* width: 20%; */
   background-color: blue;
   border-radius: 5px;
   color: #fff;
 }
-#sell:active{
+#sell:active {
   background-color: #00007b;
 }
 
-.searchContainer{
+.searchContainer {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
@@ -109,17 +109,15 @@ border: none;
   top: 100px; */
 }
 
-#searchInput{
+#searchInput {
   height: 28px;
-  
 }
 
-#searchButton{
+#searchButton {
   height: 32px;
-
 }
 
-.searchResult{
+.searchResult {
   display: flex;
   flex-direction: column;
   gap: 12px;
