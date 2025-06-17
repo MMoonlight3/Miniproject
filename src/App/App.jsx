@@ -110,6 +110,7 @@ function App() {
               console.log(sell(symbol, price, count, totalMoney, setTotalMoney))
             }>매도</button>
           </div>
+          <div id={styles.showCountOfStock}>{symbol == "" ? "" : JSON.parse(localStorage.getItem("log"))[symbol][0]}</div>
           <div className={styles.searchContainer}>
             <div>
               <input

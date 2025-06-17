@@ -9,6 +9,10 @@
   width: fit-content;
 }
 
+#showCountOfStock {
+  color: black;
+}
+
 #title {
   color: black;
 }
