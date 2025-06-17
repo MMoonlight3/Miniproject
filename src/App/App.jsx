@@ -23,7 +23,7 @@ function App() {
   
   useEffect(function () {
     let money = localStorage.getItem("money")
-    if (money != null) setTotalMoney(money);
+    if (money != null) setTotalMoney(Number(money));
   })
 
   const onChange = (e) => {
@@ -100,12 +100,15 @@ function App() {
             <button
               id={styles.buy}
               onClick={() =>
-                  buy(symbol, price, count, totalMoney, setTotalMoney)
+                  console.log(buy(symbol, price, count, totalMoney, setTotalMoney))
               }
             >
               매수
             </button>
-            <button id={styles.sell}>매도</button>
+            <button id={styles.sell}
+            onClick={() =>
+              console.log(sell(symbol, price, count, totalMoney, setTotalMoney))
+            }>매도</button>
           </div>
           <div className={styles.searchContainer}>
             <div>
