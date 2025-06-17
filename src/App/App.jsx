@@ -9,9 +9,35 @@ import SearchData from "../Search/SearchData";
 import { buy } from "./BuySell.jsx";
 import { sell } from "./BuySell.jsx";
 
+function getLastBuyPrice(symbol) {
+  const log = JSON.parse(localStorage.getItem("log") || "{}");
+  if (!log[symbol]) return null;
+  // const trades = log[symbol].slice(1);
+  // const lastBuy = [...trades].reverse().find(trade => trade.act === 'B');
+  // return lastBuy ? lastBuy.price : null;
+  console.log(log[symbol].slice(1))
+}
+
+function StockInfo({symbol}){
+  return(
+    <div className={styles.information}>
+      <div>심볼:{symbol && symbol}</div>
+      <div id={styles.showCountOfStock}>수량:{symbol && JSON.parse(localStorage.getItem("log"))[symbol]?.[0]}주</div>
+      <div>{symbol && (getLastBuyPrice(symbol) ?? "가격 정보 없음")}</div>
+    </div>
+  )
+}
+
 function App() {
   const [count, setCount] = useState(0);
-  const [symbols, setSymbols] = useState([]);
+  const [symbols, setSymbols] = useState(() => {
+    const saved = localStorage.getItem("symbols")
+    return saved ? JSON.parse(saved) : []
+  });
+  useEffect(() => {
+  localStorage.setItem("symbols", JSON.stringify(symbols));
+}, [symbols]);
+  
   const [symbol, setSymbol] = useState("");
   const [searchData, setSearchData] = useState([]);
   // const [searchData,searched] = useState("")
@@ -26,6 +52,8 @@ function App() {
     if (money != null) setTotalMoney(Number(money));
   })
 
+  
+  
   const onChange = (e) => {
     setText(e.target.value);
   };
@@ -34,7 +62,7 @@ function App() {
       const response = await axios.get(
         `https://api.twelvedata.com/symbol_search?symbol=${text}&apikey=0c0678b9920e4a64809872434b5973c5`
       );
-      // console.log(text, response.data.data);
+      console.log(text, response.data.data);
       setSearchData(response.data.data);
       // addSymbols(...symbols,searchData)/
     } catch (error) {
@@ -79,7 +107,7 @@ function App() {
         />
       </div>
       <div className={styles.interfaceContainer}>
-        <div id={styles.money}>총 자산 : {totalMoney}</div>
+        <div id={styles.money}>총 자산 : {totalMoney}원</div>
         <div className={styles.tradeContainer}>
           <div className={styles.functionContainer}>
             <div className={styles.counterContainer}>
@@ -110,7 +138,17 @@ function App() {
               console.log(sell(symbol, price, count, totalMoney, setTotalMoney))
             }>매도</button>
           </div>
-          <div id={styles.showCountOfStock}>{symbol == "" ? "" : JSON.parse(localStorage.getItem("log"))[symbol][0]}</div>
+          {/* <div className={styles.information}>
+            <div>심볼:{symbol && symbol}</div>
+            <div id={styles.showCountOfStock}>수량:{symbol && JSON.parse(localStorage.getItem("log"))[symbol]?.[0]}주</div>
+            <div>{symbol && (getLastBuyPrice(symbol) ?? "가격 정보 없음")}</div>
+          </div> */}
+          <div className={styles.infoContainer}>
+          {symbols.map((symbol,item) => (
+            <StockInfo key={item} symbol={symbol}/>
+          ))}
+          </div>
+          
           <div className={styles.searchContainer}>
             <div>
               <input

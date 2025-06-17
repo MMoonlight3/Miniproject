@@ -6,7 +6,7 @@ import styles from "./minichart.module.css";
 export const getData = async (symbol, setPrice) => {
   try {
     const stockData = await axios.get(
-      `https://api.twelvedata.com/time_series?symbol=${symbol},USD/KRW&interval=1min&apikey=13143e1979c247f795e245449922f36a`
+      `https://api.twelvedata.com/time_series?symbol=${symbol},USD/KRW&interval=1min&apikey=0c0678b9920e4a64809872434b5973c5`
     );
     console.log(symbol, stockData);
     setPrice(
@@ -65,7 +65,7 @@ function Drawcharts({ symbol, symbols, setSymbols, setSymbol, setPrice }) {
     return () => {
       clearInterval(interval);
       if (chartInstanceRef.current) {
-        chartInstanceRef.current.dispose();
+        chartInstanceRef.current.remove;
       }
     };
   }, [symbol, setPrice]);

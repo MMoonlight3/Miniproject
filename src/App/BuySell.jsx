@@ -9,7 +9,7 @@ function getDate() {
   let milli = today.getMilliseconds();
 
   let string = `${year}-${month}-${date} ${hours}:${minutes}:${seconds}.${milli}`;
-  // console.log(string); // 확인함
+  console.log(string); // 확인함
   return string;
 }
 function save(symbol, price, count, balance, act) {
@@ -49,10 +49,22 @@ function save(symbol, price, count, balance, act) {
 export function buy(symbol, price, count, totalMoney, setTotalMoney) {
   let totalCost = price * count;
 
-  if (count <= 0) return -1;
-  if (price <= 0) return -2;
-  if (symbol == "") return -3;
-  if (totalCost > totalMoney) return -4;
+  if (count <= 0) {
+    alert("수량을 선택해주세요!")    
+    return -1
+}
+  if (price <= 0) {
+    alert("가지고 있는 것보다 더 매도할 수는 없습니다!")
+    return -2
+};
+  if (symbol == "") {
+    alert("매수 혹은 매도할 주식을 선택해주세요!")
+    return -3
+}
+  if (totalCost > totalMoney) {
+    alert("에휴 그지새끼 돈 부족합니다~")
+    return -4;
+}
 
   const balance = totalMoney - totalCost;
   setTotalMoney(balance);

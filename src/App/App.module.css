@@ -36,7 +36,7 @@
 
 .tradeContainer {
   display: flex;
-  gap: 400px;
+  gap: 150px;
 }
 
 .functionContainer {
@@ -78,6 +78,12 @@
 }
 
 #cost {
+}
+
+.infoContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 #buy {

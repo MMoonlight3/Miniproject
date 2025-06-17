@@ -7,14 +7,14 @@ import { useState, useEffect } from "react";
 // import { getData } from "./MiniChart/MiniChart.jsx";
 // import { symbols } from "../SearchData.jsx";
 // 보여줄 종목 리스트 (심볼 코드 배열)
-const symbols = [
-  "NASDAQ:TSLA",
-  "NASDAQ:GOOGL",
-  "NASDAQ:AAPL",
-  "KOSDAQ",
-  "BTCUSD",
-  "KQ:035720",
-];
+// const symbols = [
+//   "NASDAQ:TSLA",
+//   "NASDAQ:GOOGL",
+//   "NASDAQ:AAPL",
+//   "KOSDAQ",
+//   "BTCUSD",
+//   "KQ:035720",
+// ];
 
 // 여러 개의 미니 차트를 렌더링하는 컴포넌트
 const Multipulchart = ({ symbols, setSymbols, setSymbol, setPrice }) => {

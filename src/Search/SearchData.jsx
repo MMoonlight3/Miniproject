@@ -4,7 +4,7 @@ import { useState } from "react";
 // import { symbols } from "./multiplechart/multiplechart";
 
 function SearchData({data,symbols,addSymbols}){
-    console.log(data)
+    // console.log(data)
     const add = () => {
         if (symbols.length < 3){
             if (!symbols.includes(data.symbol))
@@ -13,8 +13,9 @@ function SearchData({data,symbols,addSymbols}){
         }    
         else alert("차트는 3개까지 확인할 수 있습니다")
     }
-    // console.log(data.symbol,data)
-    if (data.exchange == "NASDAQ" || data.exchange == "NYSE"){
+    
+    if (data.exchange == "NASDAQ" || data.exchange == "NYSE" || data.exchange == "BVC"){
+        // console.log(data.symbol,data)
         return(
         <div className={styles.container}>
             <div id={styles.searched}>{data.symbol} || {data.instrument_name}</div>
@@ -22,7 +23,7 @@ function SearchData({data,symbols,addSymbols}){
         </div>
     )
     }
-    
 }
+
 
 export default SearchData;
